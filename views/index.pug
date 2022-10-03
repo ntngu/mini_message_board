@@ -2,4 +2,11 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
+  div.messages
+    each msg in msg_list
+      ul
+        li #{msg.text} - #{msg.user} | #{msg.added}
+    else 
+      li There are no messages.
+  a(href="/new") 
+    p Submit New Message

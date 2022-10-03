@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+  h1= title
+  form(action="/new", method="post")
+    p Message:
+    input(type="text", name="msg", required)
+    p Name: 
+    input(type="text", name="name", required)
+    br
+    button(type="submit", name="Submit", action="/new")
+      span Submit
