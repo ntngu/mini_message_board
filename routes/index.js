@@ -1,16 +1,17 @@
 var express = require('express');
+var { DateTime } = require("luxon");
 var router = express.Router();
 
 const messages = [
   {
     text: "Hi there!",
     user: "Amando",
-    added: new Date(),
+    added: DateTime.now().toLocaleString(DateTime.DATETIME_MED),
   },
   {
     text: "Hello World!",
     user: "Charles",
-    added: new Date(),
+    added: DateTime.now().toLocaleString(DateTime.DATETIME_MED),
   },
 ]
 
@@ -20,7 +21,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/new', function(req, res, next) {
-  messages.push({text: req.body.msg, user: req.body.name, added: new Date()});
+  messages.push({text: req.body.msg, user: req.body.name, added: DateTime.now().toLocaleString(DateTime.DATETIME_MED)});
   res.redirect('/');
 });
 
